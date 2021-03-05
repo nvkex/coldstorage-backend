@@ -14,6 +14,7 @@ const verifyToken = (req, res, next) => {
         const verified = jwt.verify(token, process.env.JWT_TOKEN);
         if (!verified)
             return res.status(401).send()
+        req.user = verified.id;
     }
     catch (err) {
         return res.status(400).send();
@@ -38,6 +39,8 @@ const checkExpiry = (req, res, next) => {
 
     // Verify token
     const decodedToken = jwt.verify(token, process.env.JWT_TOKEN);
+
+    req.user = decodedToken.id;
 
     // Check expiry
     if (currentDate - decodedToken.iat > ONE_DAY)
