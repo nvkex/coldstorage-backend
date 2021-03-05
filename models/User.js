@@ -32,6 +32,14 @@ const UserSchema = new mongoose.Schema({
     },
     defaultIP:{
         type: String
+    },
+    deleted: {
+        type: Boolean,
+        default: false
+    },
+    uniqueToken: {
+        type: String,
+        default: null
     }
 })
 
