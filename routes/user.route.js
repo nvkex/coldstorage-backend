@@ -28,8 +28,11 @@ router.get('/info', [verifyToken], userInfo);
 // Update user account
 router.put('/update-user-info', [verifyToken, checkExpiry], updateUserInfo);
 
+// Send confirmation token for deleting account.
+router.delete('/cnf-delete-user', [verifyToken, checkExpiry], cnfDeleteUser);
+
 // Delete a user permanently
-router.delete('/delete-user', [verifyToken, checkExpiry], deleteUser);
+router.delete('/delete-user', [verifyToken, checkExpiry], deleteUserPermanently);
 
 // Upload content
 router.post('/upload-content', [verifyToken, checkExpiry], uploadContent);
