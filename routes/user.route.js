@@ -13,7 +13,8 @@ const {
     userContents,
     userInfo,
     updateUserInfo,
-    deleteUser,
+    cnfDeleteUser,
+    deleteUserPermanently,
     uploadContent,
     updateContent,
     deleteContent
